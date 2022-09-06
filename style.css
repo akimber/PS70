@@ -5,6 +5,20 @@ h3{
   padding-top: 0px !important;
 }
 
+h1{
+  font: 35px Andale Mono, monospace;
+  line-height: 1.8;
+  color: black;
+  padding-top: 0px !important;
+}
+
+h4{
+  font: 22px Andale Mono, monospace;
+  line-height: 1.8;
+  color: black;
+  padding-top: 0px !important;
+}
+
 h5{
   font: 18px Andale Mono, monospace;
   line-height: 1.8;
@@ -13,7 +27,7 @@ h5{
 }
 
 body {
-    font: 20px Georgia, sans-serif;
+    font: 18px Trebuchet MS, sans-serif;
     line-height: 1.8;
     color: black;
     padding-top: 0px !important;
@@ -31,4 +45,9 @@ p {font-size: 16px;}
 .nav-title{
   margin-left: 15px;
   margin-right: 15px;
+}
+
+mark {
+  background-color: white;
+  opacity: .4;
 }
