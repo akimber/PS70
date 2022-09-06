@@ -1,5 +1,19 @@
+h3{
+  font: 25px Andale Mono, monospace;
+  line-height: 1.8;
+  color: black;
+  padding-top: 0px !important;
+}
+
+h5{
+  font: 18px Andale Mono, monospace;
+  line-height: 1.8;
+  color: black;
+  padding-top: 0px !important;
+}
+
 body {
-    font: 20px Montserrat, sans-serif;
+    font: 20px Georgia, sans-serif;
     line-height: 1.8;
     color: black;
     padding-top: 0px !important;
