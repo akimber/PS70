@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<title>PS70: Intro to Digital Fabrication </title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../style.css" rel="stylesheet">
+
+
+<nav class="navbar navbar-expand-sm navbar-light">
+  <div style="align-items: left; justify-content:left;" class="container-fluid">
+    <h3 class="nav-title">INTRO TO DIGITAL FABRICATION</h3>
+    <div class="navbar-nav">
+      <h5></h5>
+      <h5><a class="nav-link" href="../index.html">HOME</a></h5>
+      <h5><a class="nav-link" href="../about.html">ABOUT</a></h5>
+      <h5><a class="nav-link" href="../final.html">FINAL</a></h5>
+    </div>
+  </div>
+</nav>
+
+<body style="padding-top: 0px;background-image: url('./longcloud.png')">
+
+<xmp style="display:none;">
+<br> 
+
+# WEEK 4: 3D Printing and Design
+#### 3D Printing
+
+This week we were tasked with designing and printing a 3D object that could not be created easily using other fabrication methods. Since one of my final project ideas includes a necklace, I wanted to see if I could 3D print a chain that would be flexible and hooked together like a chain. I looked up a quick tutorial online for designing a 3D model of a chain at <a href="https://www.youtube.com/watch?v=5lg0CalY9ag">this random YouTube video.</a> I ended up with a modified version of the example they gave. I didn't want a long chain because I didn't want to waste a lot of material in case this experiment didn't work. I also needed to have some linkage between each link in Fusion360 so that the chain would be a single object, so I added a tiny .5mm rectangle joining each link togather. You can see in the Fusion360 file how my design ended up: <a download href='./3D_chain_model.f3d'>Download my 3D Model file here. </a> The STL file I used can also be downloaded here:  <a download href='./chain_trial1.stl'>Download my STL file here. </a> If you'd like to replicate and print the chain, you can download my final g-code file here to send to the printer. I made the chain bigger than I had originally designed in Fusion360 by 150%. <a download href='./ana_chain_test.gcode'>Download my g-code file here. </a>
+
+#### 3D Scanning
+
+I attempted to scan the 3D printed head and the rubber duck that was in SC102 using both scanners in the room. After multiple trials and many errors, I finally decided to scan a friend of mine. I have very unsteady hands apparently, so while he was able to spin in a chair slow enough for the scanner to pick up on him, the 3D model of his face ended up pretty warped. We then switched places and he helped scan me while I spun in the chair. The product was significantly neater, though I can tell that I had a hard time keeping a straight face because some of my facial expressions are warped, too. In the future, it would be really cool if I could get a precise scan of a person and then 3D print a model of their head. If I wanted to do something relevant to my final project, I could 3d print a life-sized model of my hand to build a ring on. I don't think that would be necessary, but it would be cool... Below you can see gifs of the messy 3D scans I produced this week - when making these gifs, I also realized that I can edit 3D objects via photoshop, a platform I'm already familiar with but haven't used for that purpose yet.
+
+<img alt="gif of panning around 3D scan of Ana" src="./ana_3dscan.gif"/> <img alt="gif of panning around 3D scan of Hawk" src="./hawk_3dscan.gif"/>
+
+####FINAL PROJECT UPDATES
+
+#####Squid-Inspired Necklace
+
+I'm leaning more towards building a squid-inspired self defense necklace than my other idea, which was a robotic pufferfish. 
+
+The basic idea is this:
+
+A 2 component wearable self defense technology. Ideally, a ring with a button would be bluetooth connected to a necklace which, when the button is pressed, would spray an attacker with a smelly ink. 
+
+Because of the small size of both rings and necklaces, I may need to change my idea and build a larger prototype first. I am open to connecting the ring to a larger watch via wires or a glove, so the watch can hold a larger microcontroller on the wrist. I also expect that the necklace will be bulky. If the prototype works, and I have time, I might look into purchasing a more specialized, smaller microcontroller that could fit into a ring so I can eliminate the bulky wrist component. After all, the point of this device is to be discreet and wearable to a social event.
+
+The main goal is just for the trigger on the hand to be accessible even if the user's arm is constrained, and the necklace should be aesthetically pleasing enough that someone might wear to a party.
+
+</xmp>
+</body>
+
+<script src="../strapdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
+
+</html>
