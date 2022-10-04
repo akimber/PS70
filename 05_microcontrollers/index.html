@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<title>PS70: Intro to Digital Fabrication </title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../style.css" rel="stylesheet">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/arduino.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<nav class="navbar navbar-expand-sm navbar-light">
+  <div style="align-items: left; justify-content:left;" class="container-fluid">
+    <h3 class="nav-title">INTRO TO DIGITAL FABRICATION</h3>
+    <div class="navbar-nav">
+      <h5></h5>
+      <h5><a class="nav-link" href="../index.html">HOME</a></h5>
+      <h5><a class="nav-link" href="../about.html">ABOUT</a></h5>
+      <h5><a class="nav-link" href="../final.html">FINAL</a></h5>
+    </div>
+  </div>
+</nav>
+
+<body style="padding-top: 0px;background-image: url('./longcloud.png')">
+
+<xmp style="display:none;">
+<br> 
+
+# WEEK 5: MICROCONTROLLERS
+#### Ideation
+This week was the first week where everything was completely new to me. I had never worked with a microcontoller before, I had never built a circuit with a goal in mind, I had never coded anything that had any kind of function, let alone one that connected to a physical circuit. I decided to "play it safe" and make sure I understood the basics of microcontrollers before I tried anything too difficult. With my final project in mind, I came up with a motion largely inspired by what we did in class. I would have 3 components: a button, a light, and a motor. I avoided complicated mechanisms driven by the motor this time - mainly because I didn't want to return to my week 2 contraption or build a new mechanism, but also to focus on the coding and circuit component of the microcontroller.
+The idea was for the button to start the motor, which would spin a certain amount, then stop, and when it stops a light would turn on until the button is released. 
+It's not directly related to my final project, which is a self defense necklace/ring, but I imagine the coding might be similar. On the ring, there will be a button that triggers a mechanism on the necklace. I image this mechanism being 2 parts - one would "open" the necklace to expose a sac of ink, and the 2nd part would be to "shoot" the ink out. I'm not 100% positive how this mechanism might work yet, but the button, one motion, and another motion seems replicatable (is that a word?).
+
+This is what my circuit looked like when I first hooked it up to the arduino board. 
+
+(insert image of circuit, and sketch of circuit)
+
+I then started coding with arduino. I tried to recall the code we used during class for the motor. Since I was using a small yellow motor, and not a servo motor, rather than stopping the motor based on position, I decided to calculate a time that it should spin roughly halfway around. I wanted to have every trigger in the circuit be based on time. I wanted to work without delays and have one action follow another seamlessly.
+
+First, I coded the motor to spin halfway around after timing with my phone how long a full revolution took at 3.3 Volts. The motor should only start when the button is pressed.
+
+<pre><code class="language-arduino">
+I will insert code here once I have it, hopefully for a quick upload before class...
+</code></pre> 
+
+Then, I coded for the LED to turn on after that amount of time, and stay on until the button was released.
+<pre><code class="language-arduino">
+I will insert code here once I have it, hopefully for a quick upload before class...
+</code></pre> 
+
+Here is a video of the microcontroller in action, from the moment the button is pressed to the moment it is released:
+
+<video width="500" height="auto" controls>
+  <source src="./microcont.mov" type="video/mp4">
+</video>
+
+As a side note, I'm getting tired of the placeholder I have for my website currently. I've been sick these last two weeks, which has made it hard to motivate myself to do any work beyond what was absolutely necessary, but I plan on completely revamping this website this weekend so I don't need to do it once things get more stressful later. Hooray for long weekends.
+
+
+</xmp>
+</body>
+
+<script src="../strapdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
+
+</html>
