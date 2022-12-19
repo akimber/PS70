@@ -87,9 +87,35 @@ Your browser does not support the video tag.
               This self-defense necklace and ring combo was created to help people get away from an attacker in a tight space, regardless of whether or not they are restrained. It was inspired by squids, which use ink as a defense mechanism to get away from predators. In this prototype, I am using water for the sake of demonstration. If this necklace were to be put into use, the liquid inside would be smelly ink for two reasons: 1. The ink will mark the attacker and stain their skin for a few days to help law enforcement identify them and 2. the smell would act as a deterrant.
 
               <b> HOW IT WORKS: BASICS </b>
+
               There are two parts to this project: the ring and the necklace. When you press a button on the ring, it acts like a switch and closes the circuit between a battery and a microcontroller. The microcontroller then sends out a signal announcing its presence. The necklace is powered on by a battery the whole time. The microcontroller on the necklace is programmed to scan the room for all bluetooth devices, and when it finds a device named "ana_beetle," it turns on a pump motor which releases the ink. 
 
               <b> THE PARTS </b>
+
+              <b> Materials List </b>
+
+              Ring:
+              - ring (3D printed) STL file: <a download href='./ring_stl.stl'>Download Ring STL file</a>
+              - ring cover (3D printed) STL file: <a download href='./ring_cover.stl'>Download Ring Cover STL file</a>
+              - button
+              - XIAO ESP32C3 microcontroller from Seeed <a href="https://www.seeedstudio.com/Seeed-XIAO-ESP32C3-p-5431.html">link here</a> 
+              - 105 mAh 3.7V lithium ion battery
+              - antenna booster
+              - 4x wires (circuit diagram can be found further down)
+
+              Necklace:
+              - Pendant (3D printed) STL file: <a download href='./pendant_stl.stl'>Download Pendant STL file</a>
+              - Pendant cover (3D printed) STL file: <a download href='./pendant_cover_stl.stl'>Download Pendant Cover STL file</a>
+              - Necklace chain (commercial)
+              - XIAO ESP32C3 microcontroller from Seeed <a href="https://www.seeedstudio.com/Seeed-XIAO-ESP32C3-p-5431.html">link here</a>
+              - L9110 H Bridge Power Driver 
+              - 350 mAh 3.7V lithium ion battery
+              - Mini Pump Motor <a href="https://detail.1688.com/offer/662810013838.html?spm=a2615.7691456.co_1_0_wangpu_score_0_0_0_0_0_0_0000_0.0">link here</a>
+              - Pump tubes x2
+              - Water container & lid (3D printed) STL file: <a download href='./ink_sac_file.stl'>Download Ink Sac STL file</a>
+              - Spray nozzle (taken from commercial fine mist container)
+              - 6x wires (circuit diagram can be found further down)
+
               The ring is composed of 8 parts. The ring itself (1) is 3D printed, as is the ring cover (2) (not pictured). There is a button (3) inserted in the ring conneted to two wires (4,5) that connect to the Lithium Ion 3.7V battery (6) and the XIAO ESP32-C3 microcontroller (7). The microcontroller has an addition (8) that boosts its outputting bluetooth signal.
 
               <div class="js-lightbox lightbox-link" data-src="ring_parts.png">
@@ -99,7 +125,16 @@ Your browser does not support the video tag.
 
                 <img class="js-lazy e2e-site-project-module-image image-loaded" src="neck_guts.png" width="3840" srcset="neck_guts.png 600w,neck_guts.png 1200w,neck_guts.png 1920w,neck_guts.png 3840w," sizes="(max-width: 3840px) 100vw, 3840px"><p class="description">(Additional perspectives of each part can be seen in the video above.)
 
+            <b>CIRCUIT DIAGRAMS</b>
+
+            <b>Ring circuit:</b>
+            <img class="js-lazy e2e-site-project-module-image image-loaded" src="ringcirc.png" width="3840" srcset="ringcirc.png 600w,ringcirc.png 1200w, ringcirc.png 1920w,ringcirc.png 3840w," sizes="(max-width: 3840px) 100vw, 3840px"><p class="description">
+
+            Necklace circuit:
+           <img class="js-lazy e2e-site-project-module-image image-loaded" src="neckcirc.png" width="3840" srcset="neckcirc.png 600w,neckcirc.png 1200w,neckcirc.png 1920w,neckcirc.png 3840w," sizes="(max-width: 3840px) 100vw, 3840px"><p class="description">
+
             <b>THE CODE</b>
+
             I used the server/scanner tutorial from <a href="https://randomnerdtutorials.com/esp32-ble-server-client/">RandomNerdTutorials.</a> to code my EP32-C3 microcontrollers. There were two sets of code. For the server (the ring code), my code is nearly identical to the sample code for a BLE server given by Arduino. The only thing I changed was the name of my bluetooth device. 
             <pre style="background-color: rgba(255, 255, 255, 0.50)"><code>/*
     Based on Neil Kolban example for IDF: https://github.com/nkolban/esp32-snippets/blob/master/cpp_utils/tests/BLE%20Tests/SampleServer.cpp
@@ -107,9 +142,9 @@ Your browser does not support the video tag.
     updates by chegewara
 */
 
-#include <BLEDevice.h>
-#include <BLEUtils.h>
-#include <BLEServer.h>
+#include < BLEDevice.h> //remove space after "<"
+#include < BLEUtils.h> //remove space after "<"
+#include < BLEServer.h> //remove space after "<"
 
 // See the following for generating UUIDs:
 // https://www.uuidgenerator.net/
@@ -143,7 +178,6 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
   delay(2000);
 }</code></pre></p>
     <p class="description">
@@ -154,10 +188,10 @@ void loop() {
       <pre style="background-color: rgba(255, 255, 255, 0.50)"><code>
         /* Based on Neil Kolban example for IDF: https://github.com/nkolban/esp32-snippets/blob/master/cpp_utils/tests/BLE%20Tests/SampleScan.cpp
         Ported to Arduino ESP32 by Evandro Copercini */
-        #include <BLEDevice.h>
-        #include <BLEUtils.h>
-        #include <BLEScan.h>
-        #include <BLEAdvertisedDevice.h>
+        #include < BLEDevice.h> //remove space after "<"
+        #include < BLEUtils.h> //remove space after "<"
+        #include < BLEScan.h> //remove space after "<"
+        #include < BLEAdvertisedDevice.h> //remove space after "<"
 
 int scanTime = 5; //In seconds
 BLEScan* pBLEScan;
@@ -181,7 +215,6 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
   BLEScanResults foundDevices = pBLEScan->start(scanTime, false);
   Serial.print("Devices found: ");
   Serial.println(foundDevices.getCount());
@@ -189,6 +222,32 @@ void loop() {
   pBLEScan->clearResults();   // delete results fromBLEScan buffer to release memory
   delay(2000);
 }</code></pre></p>
+<p class = "description">
+<b> THE PROCESS </b>
+
+<b>(Narrative)</b> When I first came up with this idea, I broke it down to the basic components. When I press a button on the ring, I wanted it to connect to a microcontroller in the ring which would send a BLE (bluetooth low energy) signal to the necklace. Then, a microcontroller on the necklace receives the BLE signal, it would turn on some mechanism which would spray out of the pendant. Quickly, I realized I could use a mini pump motor instead of building a mechanical mechanism for the spray, which helped simplify my design.
+
+I started with the ring. I wanted the design to be 1) functional 2) as small as possible 3) aesthetically pleasing. I also wanted to make sure that the design was accessible, meaning that if one part broke I could easily replace it and take the entire ring apart without throwing it away. (This was a priority to me because, in my research, I saw that Apple AirPods were filled with glue, which made it impossible to take apart and fix and creates more waste). I drew multiple sketches of what the ring might look like in order to save time while designing in Autodesk Fusion 360.
+
+  I ended up designing the below ring. The ring itself is hollow, so that the wires from the button can go through without being visible. The microcontroller slides firmly into two slots, and the USB-C port is accessible. When I was desiging the ring, I wasn't sure what my power source would be, so I decided to leave the port accessible to give myself more flexibility down the line. I also included slots on the outside that a ring cover could slide down onto.
+  <img class="js-lazy e2e-site-project-module-image image-loaded" src="ring.png" width="3840" srcset="ring.png 600w,ring.png 1200w,ring.png 1920w,ring.png 3840w," sizes="(max-width: 3840px) 100vw, 3840px"><p class="description"> 
+    Satisfied that I had a physical ring, I began to design the circuit. At first, I was only working with the basic "server" code from arduino (the code is included above under "THE CODE" section). At first, I wanted to integrate the button to send a signal via bluetooth, which would require altering the code. However, I then realized I could use the button as a switch that turns the microcontroller on or off by connecting it through the battery. Not only does this avoid additional code, but it also saves battery power since the circuit is not on 24/7.
+
+    Now that I knew the ring would be functional, I shifted focus to the necklace before assembling. I wanted to make sure it worked, and that I had all of the parts necessary, before designing the pendant. I started by making sure that the motor would turn on. I first tried to turn the motor on using the same code I would use for an LED, but realized it wouldn't turn on. I checked another motor to confirm that it was the code and not the motor that wasn't working. Then, I copied old code from week 5 using an L9110 motor driver for the motor. The pump worked with this additional motor driver, so I was satisfied and moved on to integrating the motor code with the arduino example "BLE scan" code (included above). 
+
+    Since the button on the ring only turned on the ring microcontroller but did not send a signal, I needed the necklace microcontroller to scan for all bluetooth devices and turn on the motor if it saw the ring's name. (Ta-da! There is no bluetooth connection being made here. I noticed my classmates had a lot of glitches when they made an actual connected, so I wanted to be as simple as possible). PK helped me write code (explained above) that would do this. After some assembly of a relatively simple circuit, I got the motor to turn on when I pressed the ring's button. Now it was time to assemble and build!
+
+    I quickly assembled the ring by wrapping wires around the button and sliding them through the ring. I clipped them to the shortest possible length and connected one to the battery, and the other to the microcontroller. I then connect the other wire on the microcontroller to the other port on the battery. The ring was assembled, so I quickly measured it and then made a ring cover to slide on. Luckily, the ring cover came out right on the first try. The ring was done! Below is an image of the ring cover:
+    <img class="js-lazy e2e-site-project-module-image image-loaded" src="ringcover.png" width="3840" srcset="ringcover.png 600w,ringcover.png 1200w,ringcover.png 1920w,ringcover.png 3840w," sizes="(max-width: 3840px) 100vw, 3840px"><p class="description">
+    I then assembled the necklace. I clipped the wires as short as possible, and wrapped the microcontroller, L9110 motor driver, and 350 mAh lithium ion battery as tightly I could. I measured a gap between the motor and the bundled microcontrollers, then 3D printed what I nicknamed the "ink sac". There is a hole in the top for one of the tubes from the motor pump, and a lid on the bottom to refill the sac. Below is the "ink sac":
+    <img class="js-lazy e2e-site-project-module-image image-loaded" src="inksac.png" width="3840" srcset="inksac.png 600w,inksac.png 1200w,inksac.png 1920w,inksac.png 3840w," sizes="(max-width: 3840px) 100vw, 3840px"><p class="description">
+    Time was tight, so I measured the largest width, height, and length of the bundle and 3d printed a box to put it all in. The design wasn't particularly appealing, but it matched the ring, and everything fit snugly without sliding around. The box design is below, followed by the lid, which slides on with the same mechanism as the ring cover.
+    <img class="js-lazy e2e-site-project-module-image image-loaded" src="pendant.png" width="3840" srcset="pendant.png 600w,pendant.png 1200w,pendant.png 1920w,pendant.png 3840w," sizes="(max-width: 3840px) 100vw, 3840px"><p class="description">
+       <img class="js-lazy e2e-site-project-module-image image-loaded" src="pendcov.png" width="3840" srcset="pendcov.png 600w,pendcov.png 1200w,pendcov.png 1920w,pendcov.png 3840w," sizes="(max-width: 3840px) 100vw, 3840px"><p class="description">
+
+      <b>NEXT TIME</b>
+
+      There are a few things I'd have done differently if I had another chance to make this project. Mostly, I would focus on the necklace. I would make it more aesthetically pleasing than a simple box. I would also make the "ink sac" refillable from the outside, so I didn't have to unpack the pendant every time I wanted to do a demonstration. For the ink, if I mixed pen-ink with durian juice (a smelly fruit), it would give me the smelly ink that I wanted. I'm happy with how the ring turned out, so with the materials and knowledge I learned from PS70, I don't think I would change that design. With other resources, I would have of course made it smaller, because at the moment it's about as discreet as an ankle monitor but for your hand. I'd like to look at the Oura rings as inspiration for how to pack bluetooth technology so small.
 
      </div>
 
